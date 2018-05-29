@@ -12,6 +12,10 @@ namespace Webservice
     [ServiceContract]
     public interface IService1
     {
+        [OperationContract]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json,
+            UriTemplate = "Users/login/{username}/{password}")]
+        token GetWebToken(string username, string password);
 
         [OperationContract]
         string GetData(int value);
